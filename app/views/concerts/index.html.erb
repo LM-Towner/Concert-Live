@@ -1,0 +1,25 @@
+<style>
+    body {
+        background: linear-gradient( rgba(0,0,0, 0.7), rgba(0,0,0, 0.7) ), url("https://static.pexels.com/photos/342520/pexels-photo-342520.jpeg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        padding-top: 40px;
+    }
+
+</style>
+  <div class="concert-container">
+<% @concerts.each do |concert| %>
+<div class="row concert-list">
+    <% if !(concert.date < Date.today.to_s) %>
+    <div class="col-6 col-sm-3 font"><%=link_to (concert.band), concert_path(concert)%></div>
+    <div class="col-6 col-sm-3 font"><%=concert.venue %></div>
+    <div class="col-6 col-sm-3 font"><%= Date.strptime(concert.date).strftime("%m/%d/%Y")%></div>
+    <div class="col-6 col-sm-3 font">
+        <%= concert.start_time %></div>
+</div>
+  <% end %>
+  <% end %>
+
+</div>

@@ -1,0 +1,26 @@
+<center><h1>Register Now!</h1></center>
+  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+    <div class="fieldset">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true,class: "form-control" %>
+    </div>
+
+    <div class="fieldset">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, autofocus: true,class: "form-control" %>
+    </div>
+
+    </div>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true,class: "form-control" %>
+      </div>
+
+      <div class="fieldset">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control"%>
+      </div>
+
+      <div class="actions">
+        <center><%= f.submit "Log in", class: "btn btn-primary"%></center>
+      </div>
+    <% end %>

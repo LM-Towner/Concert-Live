@@ -1,0 +1,39 @@
+<style>
+    body {
+        background: linear-gradient( rgba(0,0,0, 0.7), rgba(0,0,0, 0.7) ), url("http://1.bp.blogspot.com/-RcLndDxqLVs/Ur_tFJt39gI/AAAAAAAAcqc/VfNel80yLWk/s1600/DJ+HD+Wallpapers+19.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+</style>
+
+<center>
+    <h1 class="show">Show Details</h1>
+    <center>
+        <div class="row">
+            <div class="col-12 band-details">
+                <h3 class="band"><%= @concert.band %></h3>
+                <h3 class="details"><%= @concert.venue%>
+                    <h3 class="details"><%= Date.strptime(@concert.date).strftime("%m/%d/%Y")%></h3>
+                    <h3 class="details"><%= @concert.start_time %></div>
+                </h3>
+            </div>
+
+            <div class="footer">
+                <div id="scrollable">
+                    <p class="concert-goers">There
+                        <%=@concert.attendees.count%>
+                        people attending
+                        <%=@concert.band%></p>
+                    <div class="people">
+                        |
+                        <% @concert.attendees.each do |person| %>
+                        <%= person.first_name%>
+                        <%= person.last_name %>
+                        |
+                        <% end %>
+                    </div>
+                </div>
+            </div>

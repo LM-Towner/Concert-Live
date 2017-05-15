@@ -1,0 +1,26 @@
+<style>
+    body {
+        background: linear-gradient( rgba(0,0,0, 0.7), rgba(0,0,0, 0.7) ), url("https://static.pexels.com/photos/25963/pexels-photo-25963.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        padding-top: 40px;
+    }
+
+</style>
+
+<div class="jumbotron">
+<h1 id="profile-heading">Welcome <%= current_user.first_name %>!</h1>
+<div class="col-6-md profile" >
+  <p>List of all your concerts</p>
+  <ul>
+    <%current_user.concerts.each do |concert| %>
+      <%=link_to (concert.band), concert_path(concert)%>
+      (<%=Date.strptime(concert.date).strftime("%m/%d/%Y")%>)<br>
+    <% end %>
+  </div>
+  </ul>
+</div>
+
+</div>

@@ -1,0 +1,17 @@
+<center><h2>Sign in</h2></center>
+
+<%= form_for :user, url: '/login' do |f| %>
+<div class="fieldset">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true,class: "form-control" %>
+  </div>
+
+  <div class="fieldset">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control"%>
+  </div>
+
+  <div class="actions">
+    <center><%= f.submit "Log in", class: "btn btn-primary"%></center>
+  </div>
+<% end %>
